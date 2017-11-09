@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MovilesFinal</string>
+
+    <string name="buzon">Buzón</string>
+
+    <string name="carrera">Carrera</string>
+    <string name="departamento">Departamento</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="mensaje_hint">Introduce tu mensaje</string>
+    <string name="enviar">Enviar</string>
 </resources>

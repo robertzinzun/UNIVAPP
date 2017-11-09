@@ -1,0 +1,61 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:text="@string/carrera"
+        android:textSize="@dimen/texto_regular" />
+
+    <Spinner
+        android:background="@drawable/default_input_background"
+        android:id="@+id/buzon_carrera"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:text="@string/departamento"
+        android:textSize="@dimen/texto_regular" />
+
+    <Spinner
+        android:background="@drawable/default_input_background"
+        android:id="@+id/buzon_departamento"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:text="@string/mensaje"
+        android:textSize="@dimen/texto_regular" />
+
+    <EditText
+        android:background="@drawable/default_input_background"
+        android:gravity="top"
+        android:hint="@string/mensaje_hint"
+        android:id="@+id/buzon_mensaje"
+        android:inputType="textMultiLine"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:textSize="@dimen/texto_regular" />
+
+    <Button
+        android:id="@+id/buzon_boton"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/enviar" />
+
+</LinearLayout>
