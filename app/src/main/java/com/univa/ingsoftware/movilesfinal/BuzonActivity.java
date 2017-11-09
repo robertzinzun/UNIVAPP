@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import java.util.Scanner;
 
 public class BuzonActivity extends AppCompatActivity {
 
-    private static final String BUZON_URL = "http://aguilar.x10host.com/SDProject//buzon.php";
+    private static final String BUZON_URL = "http://aguilar.x10host.com/SDProject/buzon.php";
 
     private static final String[] CARRERAS = new String[] {
             "Maestría en Administración",
@@ -69,6 +70,15 @@ public class BuzonActivity extends AppCompatActivity {
     private class EnviarMensajeTask extends AsyncTask<Void, Void, Void> {
 
         @Override
+        protected void onPreExecute() {
+            ViewGroup contenido = findViewById(R.id.buzon_contenido);
+            contenido.animate()
+                    .alpha(0)
+                    .setDuration(300)
+                    .start();
+        }
+
+        @Override
         protected Void doInBackground(Void... voids) {
             try {
                 HttpURLConnection urlConnection = (HttpURLConnection)new URL(BUZON_URL).openConnection();
@@ -101,6 +111,11 @@ public class BuzonActivity extends AppCompatActivity {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            finish();
         }
     }
 

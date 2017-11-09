@@ -1,61 +1,89 @@
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_width="match_parent">
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+    <LinearLayout
+        android:background="#fafafa"
+        android:gravity="center"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:text="@string/carrera"
-        android:textSize="@dimen/texto_regular" />
+        android:orientation="vertical">
 
-    <Spinner
-        android:background="@drawable/default_input_background"
-        android:id="@+id/buzon_carrera"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent" />
+        <ProgressBar
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content" />
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/enviando"
+            android:textSize="@dimen/texto_regular" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#fafafa"
+        android:id="@+id/buzon_contenido"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:text="@string/departamento"
-        android:textSize="@dimen/texto_regular" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <Spinner
-        android:background="@drawable/default_input_background"
-        android:id="@+id/buzon_departamento"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:text="@string/carrera"
+            android:textSize="@dimen/texto_regular" />
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:text="@string/mensaje"
-        android:textSize="@dimen/texto_regular" />
+        <Spinner
+            android:background="@drawable/default_input_background"
+            android:id="@+id/buzon_carrera"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent" />
 
-    <EditText
-        android:background="@drawable/default_input_background"
-        android:gravity="top"
-        android:hint="@string/mensaje_hint"
-        android:id="@+id/buzon_mensaje"
-        android:inputType="textMultiLine"
-        android:layout_height="150dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:textSize="@dimen/texto_regular" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:text="@string/departamento"
+            android:textSize="@dimen/texto_regular" />
 
-    <Button
-        android:id="@+id/buzon_boton"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text="@string/enviar" />
+        <Spinner
+            android:background="@drawable/default_input_background"
+            android:id="@+id/buzon_departamento"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent" />
 
-</LinearLayout>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:text="@string/mensaje"
+            android:textSize="@dimen/texto_regular" />
+
+        <EditText
+            android:background="@drawable/default_input_background"
+            android:gravity="top"
+            android:hint="@string/mensaje_hint"
+            android:id="@+id/buzon_mensaje"
+            android:inputType="textMultiLine"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:textSize="@dimen/texto_regular" />
+
+        <Button
+            android:id="@+id/buzon_boton"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/enviar" />
+
+    </LinearLayout>
+
+</FrameLayout>

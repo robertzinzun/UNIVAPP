@@ -8,4 +8,5 @@
     <string name="mensaje">Mensaje</string>
     <string name="mensaje_hint">Introduce tu mensaje</string>
     <string name="enviar">Enviar</string>
+    <string name="enviando">Enviando…</string>
 </resources>
