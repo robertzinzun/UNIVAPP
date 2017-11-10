@@ -28,6 +28,12 @@
             android:label="@string/buzon"
             android:name=".BuzonActivity" />
 
+        <activity android:name=".biblioteca" />
+
+        <activity android:name=".CalifActivity" />
+
+        <activity android:name=".Iniciocalif" />
+
     </application>
 
 </manifest>
