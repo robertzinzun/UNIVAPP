@@ -88,10 +88,9 @@ public class BuzonActivity extends AppCompatActivity {
                     urlConnection.setChunkedStreamingMode(0);
                     urlConnection.setRequestMethod("POST");
 
-                    String data =
-                            "carrera=" + URLEncoder.encode((String)mCarreraSpinner.getSelectedItem(), "UTF-8") +
-                                    "&departamento=" + URLEncoder.encode((String)mDepartamentoSpinner.getSelectedItem(), "UTF-8") +
-                                    "&mensaje=" + URLEncoder.encode(mMensajeText.getText().toString(), "UTF-8");
+                    String data = "carrera=" + URLEncoder.encode((String)mCarreraSpinner.getSelectedItem(), "UTF-8") +
+                            "&departamento=" + URLEncoder.encode((String)mDepartamentoSpinner.getSelectedItem(), "UTF-8") +
+                            "&mensaje=" + URLEncoder.encode(mMensajeText.getText().toString(), "UTF-8");
 
                     OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
                     out.write(data.getBytes());
