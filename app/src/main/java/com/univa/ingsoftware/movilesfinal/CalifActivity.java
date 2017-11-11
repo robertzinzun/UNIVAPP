@@ -31,7 +31,7 @@ public class CalifActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calif);
         name = (TextView) findViewById(R.id.resultado);
 
-        Name = getIntent().getStringExtra("IDUsuario");
+        Name = getIntent().getStringExtra("id");
 
         BackGround b = new BackGround();
         b.execute(Name);

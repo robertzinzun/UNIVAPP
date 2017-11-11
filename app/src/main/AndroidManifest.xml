@@ -21,20 +21,24 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" />
+        <activity
+            android:name=".BuzonActivity"
+            android:label="@string/buzon" />
+        <activity android:name=".biblioteca" />
+        <activity android:name=".CalifActivity" />
+
+        <activity
+            android:label="Puntos de importancia"
+            android:name=".SeleccionarMarca" />
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BuzonActivity"
-            android:label="@string/buzon" />
-        <activity android:name=".biblioteca" />
-        <activity android:name=".CalifActivity" />
-        <activity android:name=".SeleccionarMarca" />
-        <activity android:name=".LoginActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -51,7 +55,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
 			
-        <activity android:name=".MenuPrincipal"></activity>
+        <activity android:name=".MenuPrincipal" />
     </application>
 
 </manifest>

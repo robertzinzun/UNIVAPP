@@ -31,4 +31,6 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.github.snowdream.android:smartimageview:0.0.2'
 
+    compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.0'
+
 }

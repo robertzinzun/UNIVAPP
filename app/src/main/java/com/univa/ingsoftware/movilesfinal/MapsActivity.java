@@ -26,6 +26,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
+        Nombre = getIntent().getStringExtra("Nombre");
+        Latitud = getIntent().getDoubleExtra("Latitud", 0);
+        Longitud = getIntent().getDoubleExtra("Longitud", 0);
+
         mapFragment.getMapAsync(this);
     }
 
@@ -42,11 +47,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         LatLng MarcaDestino = new LatLng(this.Latitud, this.Longitud);
         mMap.addMarker(new MarkerOptions().position(MarcaDestino).title(this.Nombre));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(MarcaDestino));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MarcaDestino, 17));
     }
 
 }

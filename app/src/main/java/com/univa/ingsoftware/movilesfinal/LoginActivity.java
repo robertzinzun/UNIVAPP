@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 err = "Exception: "+e.getMessage();
             }
 
-            Intent i = new Intent(ctx, biblioteca.class);
+            Intent i = new Intent(ctx, MenuPrincipal.class);
             i.putExtra("name", Name);
             i.putExtra("email", Email);
             i.putExtra("id",ID);

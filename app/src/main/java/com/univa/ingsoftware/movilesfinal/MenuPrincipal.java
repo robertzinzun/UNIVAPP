@@ -7,8 +7,6 @@ import android.view.View;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    private int IDUsuario;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,29 +20,34 @@ public class MenuPrincipal extends AppCompatActivity {
 
     public void buttonCalificaciones_onClick(View v)
     {
+        String id = getIntent().getStringExtra("id");
+
         Intent i=new Intent(this,CalifActivity.class);
-        i.putExtra("IDUsuario", this.IDUsuario);
+        i.putExtra("id", id);
         startActivity(i);
 
     }
 
     public void buttonBiblioteca_onClick(View v)
     {
+        Intent intent = new Intent(this, biblioteca.class);
+        intent.putExtra("id", getIntent().getStringExtra("id"));
 
+        startActivity(intent);
     }
 
     public void buttonBuzon_onClick(View v)
     {
-
+        startActivity(new Intent(this, BuzonActivity.class));
     }
 
     public void buttonGalerias_onClick(View v)
     {
-
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     public void buttonUbicaciones_onClick(View v)
     {
-
+        startActivity(new Intent(this, SeleccionarMarca.class));
     }
 }

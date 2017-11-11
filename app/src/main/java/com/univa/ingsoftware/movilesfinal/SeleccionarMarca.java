@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeleccionarMarca extends AppCompatActivity {
     ListView ListaParaMostrar;
@@ -31,28 +34,35 @@ public class SeleccionarMarca extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_seleccionar_marca);
 
         this.ListaParaMostrar=(ListView) findViewById(R.id.MarcaLvwMarcas);
 
-        CargarMarcas();
+        this.ListaParaMostrar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                LocalizarMarca(position);
+            }
+        });
+
+        CargarMarcas(null);
 
         ctx=this;
     }
 
-    private void CargarMarcas(){
+    private void CargarMarcas(View view){
         BackGround b = new BackGround();
         b.execute();
     }
 
     private  void LlenarListView(){
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(ctx, android.R.layout.simple_list_item_1, this.Marcas.toArray(new String[1]));
+        ListaParaMostrar.setAdapter(
+                new ArrayAdapter<>(ctx,
+                        android.R.layout.simple_list_item_1,
+                        this.Marcas.toArray(new ModeloMarca[this.Marcas.size()])));
     }
 
-    private void LocalizarMarca(View v){
-        int IndexMarca = (int) this.ListaParaMostrar.getSelectedItemPosition();
-
+    private void LocalizarMarca(int IndexMarca){
         if(IndexMarca==-1)
         {
 
@@ -61,8 +71,8 @@ public class SeleccionarMarca extends AppCompatActivity {
             Intent i=new Intent(ctx, MapsActivity.class);
 
             i.putExtra("Nombre",Marca.Nombre);
-            i.putExtra("Latitud",Marca.Latitud);
-            i.putExtra("Longitud",Marca.Longitud);
+            i.putExtra("Latitud", Double.parseDouble(Marca.Latitud));
+            i.putExtra("Longitud", Double.parseDouble(Marca.Longitud));
 
             startActivity(i);
         }
@@ -112,8 +122,10 @@ public class SeleccionarMarca extends AppCompatActivity {
             String err=null;
             try {
                 //creamos el objeto json
-                JSONObject json = new JSONObject(s);
-                JSONObject MarcasBD = json.getJSONObject(Constantes.NombreRespuestaJSONServidor);
+                //JSONObject json = new JSONObject(s);
+                //JSONObject MarcasBD = json.getJSONObject(Constantes.NombreRespuestaJSONServidor);
+
+                JSONArray MarcasBD = new JSONArray(s);
 
                 //Declaro las variables para capturar los valores del JSON
                 int jsonId;
@@ -123,11 +135,13 @@ public class SeleccionarMarca extends AppCompatActivity {
                 //creo un array de peces
                 Marcas=new ArrayList<ModeloMarca>();
                 for(int i=0; i<MarcasBD.length();i++) {
+                    JSONObject marca = MarcasBD.getJSONObject(i);
+
                     //sacamos los datos y vamos creando los objetos
-                    jsonId=MarcasBD.getInt(Constantes.RespuestaJSONColumnaID);
-                    jsonNombre=MarcasBD.getString(Constantes.RespuestaJSONColumnaNombre);
-                    jsonLat=MarcasBD.getString(Constantes.RespuestaJSONColumnaLatitud);
-                    jsonLng=MarcasBD.getString(Constantes.RespuestaJSONColumnaLongitud);
+                    jsonId=marca.getInt(Constantes.RespuestaJSONColumnaID);
+                    jsonNombre=marca.getString(Constantes.RespuestaJSONColumnaNombre);
+                    jsonLat=marca.getString(Constantes.RespuestaJSONColumnaLatitud);
+                    jsonLng=marca.getString(Constantes.RespuestaJSONColumnaLongitud);
                     //creo objetos tipo pez
                     ModeloMarca Marca=new ModeloMarca(jsonId,jsonNombre,jsonLat,jsonLng);
                     Marcas.add(Marca);
@@ -140,20 +154,12 @@ public class SeleccionarMarca extends AppCompatActivity {
                 err = "Exception: "+e.getMessage();
             }
 
-            if(!err.equals("")){
-                Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+            if(!"".equals(err)){
             }
 
         }
 
     }
-
-
-
-
-
-
-
 
     private class ModeloMarca {
         public int id;
@@ -172,6 +178,10 @@ public class SeleccionarMarca extends AppCompatActivity {
             Longitud = longitud;
         }
 
+        @Override
+        public String toString() {
+            return Nombre;
+        }
     }
 
 
