@@ -25,8 +25,23 @@ public class BuzonActivity extends AppCompatActivity {
 
     private static final String[] CARRERAS = new String[] {
             "Maestría en Administración",
-            "Maestría Fiscal",
-            "Maestría en Ing. de Software"
+            "Maestría en Fiscal",
+            "Maestría en Ing. de Software",
+            "Maestría en Nutrición Clínica",
+            "Maestría en Terapia familiar sistémico relacional",
+            "Maestría en Administración de negocios MBA",
+            "Maestría en en Finanzas",
+            "Maestría en Desarollo organizacional y humano",
+            "Maestría en Juicio de amparo",
+            "Maestría en Derecho corporativo",
+            "Maestría en Educación",
+            "Maestría en Ingeniería industrial",
+            "Maestría en Valuación",
+            "Maestría en Gestión de la calidad",
+            "Maestría en Especialidad en programación de tecnologías móviles",
+            "Maestría en Comunicación corporativa",
+            "Maestría en Medios creativos digitales",
+            "Maestría en Dirección de mercadotecnia"
     };
 
     private static final String[] DEPARTAMENTOS = new String[] {
@@ -81,12 +96,14 @@ public class BuzonActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                HttpURLConnection urlConnection = (HttpURLConnection)new URL(BUZON_URL).openConnection();
+                URL url = new URL(BUZON_URL);
+                HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
 
                 try {
                     urlConnection.setDoOutput(true);
                     urlConnection.setChunkedStreamingMode(0);
                     urlConnection.setRequestMethod("POST");
+                    urlConnection.setRequestProperty("Content-Type", "x-www-form-urlencoded; charset=utf-8");
 
                     String data = "carrera=" + URLEncoder.encode((String)mCarreraSpinner.getSelectedItem(), "UTF-8") +
                             "&departamento=" + URLEncoder.encode((String)mDepartamentoSpinner.getSelectedItem(), "UTF-8") +

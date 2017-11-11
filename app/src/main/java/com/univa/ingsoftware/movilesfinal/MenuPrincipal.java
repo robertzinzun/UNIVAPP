@@ -9,11 +9,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
     private int IDUsuario;
 
-    public MenuPrincipal(int IDUsuario)
-    {
-        this.IDUsuario=IDUsuario;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
