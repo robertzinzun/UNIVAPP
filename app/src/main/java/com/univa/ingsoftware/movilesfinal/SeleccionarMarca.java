@@ -1,0 +1,190 @@
+package com.univa.ingsoftware.movilesfinal;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+public class SeleccionarMarca extends AppCompatActivity {
+    ListView ListaParaMostrar;
+    private ArrayList<ModeloMarca> Marcas = new ArrayList<ModeloMarca>();
+    Context ctx;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_seleccionar_marca);
+
+        this.ListaParaMostrar=(ListView) findViewById(R.id.MarcaLvwMarcas);
+
+        CargarMarcas();
+
+        ctx=this;
+    }
+
+    private void CargarMarcas(){
+        BackGround b = new BackGround();
+        b.execute();
+    }
+
+    private  void LlenarListView(){
+        ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<String>(ctx, android.R.layout.simple_list_item_1, this.Marcas.toArray(new String[1]));
+    }
+
+    private void LocalizarMarca(View v){
+        int IndexMarca = (int) this.ListaParaMostrar.getSelectedItemPosition();
+
+        if(IndexMarca==-1)
+        {
+
+        } else {
+            ModeloMarca Marca=this.Marcas.get(IndexMarca);
+            Intent i=new Intent(ctx, MapsActivity.class);
+
+            i.putExtra("Nombre",Marca.Nombre);
+            i.putExtra("Latitud",Marca.Latitud);
+            i.putExtra("Longitud",Marca.Longitud);
+
+            startActivity(i);
+        }
+    }
+
+
+
+
+
+    class BackGround extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected String doInBackground(String... params) {
+            String data = "";
+            int tmp;
+
+            try {
+                URL url = new URL(Constantes.DireccionURLServidor);
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.flush();
+                os.close();
+
+                InputStream is = httpURLConnection.getInputStream();
+                while ((tmp = is.read()) != -1) {
+                    data += (char) tmp;
+                }
+
+                is.close();
+                httpURLConnection.disconnect();
+
+                return data;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            }
+
+        }
+
+        protected void onPostExecute(String s) {
+            String err=null;
+            try {
+                //creamos el objeto json
+                JSONObject json = new JSONObject(s);
+                JSONObject MarcasBD = json.getJSONObject(Constantes.NombreRespuestaJSONServidor);
+
+                //Declaro las variables para capturar los valores del JSON
+                int jsonId;
+                String jsonNombre;
+                String jsonLat;
+                String jsonLng;
+                //creo un array de peces
+                Marcas=new ArrayList<ModeloMarca>();
+                for(int i=0; i<MarcasBD.length();i++) {
+                    //sacamos los datos y vamos creando los objetos
+                    jsonId=MarcasBD.getInt(Constantes.RespuestaJSONColumnaID);
+                    jsonNombre=MarcasBD.getString(Constantes.RespuestaJSONColumnaNombre);
+                    jsonLat=MarcasBD.getString(Constantes.RespuestaJSONColumnaLatitud);
+                    jsonLng=MarcasBD.getString(Constantes.RespuestaJSONColumnaLongitud);
+                    //creo objetos tipo pez
+                    ModeloMarca Marca=new ModeloMarca(jsonId,jsonNombre,jsonLat,jsonLng);
+                    Marcas.add(Marca);
+                }
+
+                LlenarListView();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                err = "Exception: "+e.getMessage();
+            }
+
+            if(!err.equals("")){
+                Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+    private class ModeloMarca {
+        public int id;
+        public String Nombre;
+        public String Latitud;
+        public String Longitud;
+
+        public ModeloMarca(){
+
+        }
+
+        public ModeloMarca(int id, String nombre, String latitud, String longitud) {
+            this.id = id;
+            Nombre = nombre;
+            Latitud = latitud;
+            Longitud = longitud;
+        }
+
+    }
+
+
+
+
+
+    public class Constantes{
+        public final static String DireccionURLServidor="http://aguilar.x10host.com/SDProject/ConsultarMarcas.php";
+        public final static String NombreRespuestaJSONServidor="resp";
+        public final static String RespuestaJSONColumnaID="id";
+        public final static String RespuestaJSONColumnaNombre="Nombre";
+        public final static String RespuestaJSONColumnaLatitud="Latitud";
+        public final static String RespuestaJSONColumnaLongitud="Longitud";
+    }
+
+}
