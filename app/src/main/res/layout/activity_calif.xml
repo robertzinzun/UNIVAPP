@@ -3,46 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.univa.ingsoftware.movilesfinal.CalifActivity">
 
     <TextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="usuario"
-        android:id="@+id/textview"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        tools:layout_editor_absoluteY="6dp"
-        tools:layout_editor_absoluteX="133dp" />
+        android:text="lista de calificaciones"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="6dp" />
 
-    <Button
-        android:onClick="main_login"
+
+    <TextView
+        android:id="@+id/resultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calificaciones"
-        android:id="@+id/main_login"
-        tools:layout_editor_absoluteY="205dp"
-        tools:layout_editor_absoluteX="111dp"
-        android:layout_below="@+id/main_name"
-        android:layout_alignRight="@+id/main_name"
-        android:layout_alignEnd="@+id/main_name"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="93dp" />
-
-
-
-    <EditText
-        android:layout_width="215dp"
-        android:layout_height="44dp"
-        android:id="@+id/main_name"
-        android:hint="Name"
+        android:layout_alignLeft="@+id/textview"
+        android:layout_alignStart="@+id/textview"
         android:layout_below="@+id/textview"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        tools:layout_editor_absoluteY="44dp"
-        tools:layout_editor_absoluteX="55dp" />
+        android:layout_marginTop="60dp"
+        android:text="TextView" />
 
 
 </RelativeLayout>

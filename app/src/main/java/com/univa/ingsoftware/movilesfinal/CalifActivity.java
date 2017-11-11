@@ -1,17 +1,16 @@
 package com.univa.ingsoftware.movilesfinal;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.EditText;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -19,10 +18,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
 public class CalifActivity extends AppCompatActivity {
 
-    EditText name;
+    TextView name;
     String Name;
     Context ctx=this;
     String NAME="";
@@ -31,14 +29,13 @@ public class CalifActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calif);
-        name = (EditText) findViewById(R.id.main_name);
+        name = (TextView) findViewById(R.id.resultado);
 
-    }
+        Name = getIntent().getStringExtra("IDUsuario");
 
-    public void main_login(View v){
-        Name = name.getText().toString();
         BackGround b = new BackGround();
         b.execute(Name);
+
     }
 
     class BackGround extends AsyncTask<String, String, String> {
@@ -100,10 +97,8 @@ public class CalifActivity extends AppCompatActivity {
                 err = "Exception: "+e.getMessage();
             }
 
-            Intent i = new Intent(ctx, Iniciocalif.class);
-            i.putExtra("name", NAME);
-            i.putExtra("err", err);
-            startActivity(i);
+            name.setText(NAME);
+
 
         }
     }

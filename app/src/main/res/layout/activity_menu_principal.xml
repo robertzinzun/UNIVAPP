@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.univa.ingsoftware.movilesfinal.MenuPrincipal">
+
+    <Button
+        android:id="@+id/buttonPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:onClick="buttonPerfil_onClick"
+        android:text="Editar perfil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCalificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:onClick="buttonCalificaciones_onClick"
+        android:text="Ver calificaciones"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <Button
+        android:id="@+id/buttonBiblioteca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:onClick="buttonBiblioteca_onClick"
+        android:text="Biblioteca"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="141dp" />
+
+    <Button
+        android:id="@+id/buttonBuzon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:onClick="buttonBuzon_onClick"
+        android:text="Buzón"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <Button
+        android:id="@+id/buttonGaleria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:onClick="buttonGaleria_onClick"
+        android:text="Ver Galería"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <Button
+        android:id="@+id/buttonUbicaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:onClick="buttonUbicaciones_onClick"
+        android:text="Ver ubicaciones"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="359dp" />
+</android.support.constraint.ConstraintLayout>
