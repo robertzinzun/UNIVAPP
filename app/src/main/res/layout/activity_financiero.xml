@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.univa.ingsoftware.movilesfinal.FinancieroActivity">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:stretchColumns="1"
+        android:id="@+id/tablelayout">
+        <TableRow>
+            <TextView
+                android:layout_column="1"
+                android:padding="3dip"
+                android:layout_width="wrap_content"
+                android:text="Lista de Adeudos"
+                android:textColor="@android:color/holo_blue_dark" />
+        </TableRow>
+
+        <TableRow android:background="#128675">
+
+            <TextView
+                android:layout_column="0"
+                android:padding="3dip"
+                android:layout_width="wrap_content"
+                android:text="Descripción"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_column="1"
+                android:padding="3dip"
+                android:layout_width="wrap_content"
+                android:text="Importe"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_column="2"
+                android:padding="3dip"
+                android:layout_width="wrap_content"
+                android:text="F. Vencimiento"
+                android:textColor="@android:color/white" />
+
+
+            <TextView
+                android:layout_column="3"
+                android:padding="3dip"
+                android:layout_width="wrap_content"
+                android:text="Cuatrimestre"
+                android:textColor="@android:color/white" />
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -11,7 +11,6 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,11 +26,9 @@
             android:label="@string/buzon" />
         <activity android:name=".biblioteca" />
         <activity android:name=".CalifActivity" />
-
         <activity
-            android:label="Puntos de importancia"
-            android:name=".SeleccionarMarca" />
-
+            android:name=".SeleccionarMarca"
+            android:label="Puntos de importancia" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,8 +51,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-			
         <activity android:name=".MenuPrincipal" />
+        <activity android:name=".FinancieroActivity"></activity>
     </application>
 
 </manifest>

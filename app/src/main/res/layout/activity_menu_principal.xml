@@ -49,6 +49,19 @@
         android:textColor="#fff"
         android:layout_width="300dp"
         android:layout_marginBottom="10dp"
+        android:id="@+id/buttonFinanciero"
+        android:layout_height="wrap_content"
+        android:onClick="buttonFinanciero_onClick"
+        android:text="Financiero"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="141dp" />
+
+
+    <Button
+        android:background="@drawable/default_button_background"
+        android:textColor="#fff"
+        android:layout_width="300dp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/buttonBuzon"
         android:layout_height="wrap_content"
         android:onClick="buttonBuzon_onClick"

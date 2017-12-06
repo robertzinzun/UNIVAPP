@@ -36,6 +36,15 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void buttonFinanciero_onClick(View v)
+    {
+        Intent intent = new Intent(this, FinancieroActivity.class);
+        intent.putExtra("id", getIntent().getStringExtra("id"));
+
+        startActivity(intent);
+    }
+
+
     public void buttonBuzon_onClick(View v)
     {
         startActivity(new Intent(this, BuzonActivity.class));
