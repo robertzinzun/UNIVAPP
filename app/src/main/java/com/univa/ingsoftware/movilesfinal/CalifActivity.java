@@ -20,6 +20,7 @@ import java.net.URL;
 
 public class CalifActivity extends AppCompatActivity {
 
+    private static final String CALIF_URL = "http://10.211.55.3:81/biblioteca/consultacalif.php";
     TextView name;
     String Name;
     Context ctx=this;
@@ -47,8 +48,7 @@ public class CalifActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                //URL url = new URL("http://10.0.2.2:8080/pruebacalif/consultacalif.php");
-                URL url = new URL("http://aguilar.x10host.com/SDProject/consultacalif.php");
+                URL url = new URL(CALIF_URL);
 
                 String urlParams = "name="+name;
 

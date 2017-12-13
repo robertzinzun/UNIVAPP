@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 public class BuzonActivity extends AppCompatActivity {
 
-    private static final String BUZON_URL = "http://aguilar.x10host.com/SDProject/buzon.php";
+    private static final String BUZON_URL = "http://10.211.55.3:81/biblioteca/buzon.php";
 
     private static final String[] CARRERAS = new String[] {
             "Maestría en Administración",

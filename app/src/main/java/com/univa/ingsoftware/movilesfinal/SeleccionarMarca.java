@@ -189,7 +189,7 @@ public class SeleccionarMarca extends AppCompatActivity {
 
 
     public class Constantes{
-        public final static String DireccionURLServidor="http://aguilar.x10host.com/SDProject/ConsultarMarcas.php";
+        public final static String DireccionURLServidor="http://10.211.55.3:81/biblioteca/ConsultarMarcas.php";
         public final static String NombreRespuestaJSONServidor="resp";
         public final static String RespuestaJSONColumnaID="id";
         public final static String RespuestaJSONColumnaNombre="Nombre";

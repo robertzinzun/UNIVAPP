@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText user,pwd;
     String Name,Password,Email,ID;
     Context ctx;
-    public static final String LOGIN_URL="http://aguilar.x10host.com/SDProject/login.php";
+    public static final String LOGIN_URL="http://10.211.55.3:81/biblioteca/login.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                //URL url = new URL("http://10.0.2.2:8080/prueba/login.php");
+
                 //URL url = new URL("http://10.211.55.3:81/Biblioteca/login.php");
                 URL url = new URL(LOGIN_URL);
 

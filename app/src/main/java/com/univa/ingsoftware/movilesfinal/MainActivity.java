@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //progressDialog.setMessage("Cargando datos...");
         //progressDialog.show();
         AsyncHttpClient client =new AsyncHttpClient();
-        client.get("http://aguilar.x10host.com/SDProject/consultaGaleria.php", new AsyncHttpResponseHandler() {
+        client.get("http://10.211.55.3:81/biblioteca/consultaGaleria.php", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode==200){
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             smartImageView=(SmartImageView)viewGroup.findViewById(R.id.imagen1);
             tvNombre=(TextView)viewGroup.findViewById(R.id.tvNombre);
             tvDescripcion=(TextView)viewGroup.findViewById(R.id.tvDescripcion);
-            String urlfinal="http://aguilar.x10host.com/SDProject/img/"+ruta.get(position).toString();
+            String urlfinal="http://10.211.55.3:81/biblioteca/img/"+ruta.get(position).toString();
             Rect rect=new Rect(smartImageView.getLeft(),smartImageView.getTop(),smartImageView.getRight(),smartImageView.getBottom());
             smartImageView.setImageUrl(urlfinal,rect);
             tvNombre.setText(nombre.get(position).toString());

@@ -32,7 +32,7 @@ public class biblioteca extends AppCompatActivity {
     String idUsuario,Libro,FechaRegistro,FechaEntrega;
     Context ctx;
     TableLayout table;
-    private static final String BIBLIOTECA_URL = "http://aguilar.x10host.com/SDProject/consultaLibros.php";
+    private static final String BIBLIOTECA_URL = "http://10.211.55.3:81/Biblioteca/consultaLibros.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +61,6 @@ public class biblioteca extends AppCompatActivity {
 
             try {
                 URL url = new URL(BIBLIOTECA_URL);
-
-                //URL url = new URL("http://10.211.55.3:81/Biblioteca/consultaLibros.php");
                 String urlParams = "id="+idUsuario;
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
